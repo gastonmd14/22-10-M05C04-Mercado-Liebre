@@ -24,8 +24,16 @@ const controller = {
 		res.render('index', {visitada: visitada, ofertada: ofertada});
 	},
 	search: (req, res) => {
-		res.render('results')
-	},
+		let data = [...products]		
+
+		let busqueda = data.filter(function (buscar) {
+			if(buscar.name == req.query.keywords) {
+				return buscar;
+			}
+		});
+		console.log(busqueda);
+		res.render('results', {busqueda: busqueda})
+	}
 };
 
 module.exports = controller;

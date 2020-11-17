@@ -45,6 +45,7 @@ const controller = {
 		nuevoProduct.push({
 		...req.body,
 		id: nuevoProduct[nuevoProduct.length - 1].id + 1,
+		image: req.files[0].filename
 		})
 
 		nuevoProduct = JSON.stringify(nuevoProduct)
@@ -72,14 +73,12 @@ const controller = {
 
 		actualProduct = JSON.parse(actualProduct)
 		
-		
 		actualProduct = actualProduct.map(function(buscar) {
+			console.log(buscar);
+			console.log(req.files);
 			if(buscar.id == req.params.id) {
-				buscar.name = req.body.name,
-				buscar.price = req.body.price,
-				buscar.discount = req.body.discount,
-				buscar.category = req.body.category,
-				buscar.description = req.body.description
+				buscar = {...req.body}
+				image = req.files[0].filename	
 				return buscar
 			}
 		})
@@ -114,27 +113,6 @@ const controller = {
 		fs.writeFileSync(pathFile, actualProduct)
 
 		res.send('Producto Borrado!!')
-	},
-
-	editImage: (req, res) => {
-		let editarImage = products.find(function(buscar) {
-			if(buscar.id == req.params.id) {
-				return buscar
-			}
-		})
-		res.render('product-editImage-form', {editarImage: editarImage})
-	},
-
-	updateImage: (req, res, next) => {
-
-		console.log(req.file);
-
-		res.send('Imagen actualizada!!')
-	},
-
-	// Create - Form to create
-	createImage: (req, res) => {
-		res.render('product-createImage-form')
 	}
 };
 

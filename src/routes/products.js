@@ -5,6 +5,8 @@ const path = require('path')
 
 const multer  = require('multer')
 
+var checkusers = require('../middlewares/checkUsers')
+
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 	  cb(null, './public/images/products/new')
@@ -24,22 +26,14 @@ router.get('/', productsController.index);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create/', productsController.create); 
-router.post('/', productsController.store); 
-
-/*** CREATE ONE IMAGE-PRODUCT ***/
-router.get('/createImage/', productsController.createImage); 
+router.post('/', upload.any(), productsController.store);  
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/:id/', productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/:id/edit', productsController.edit); 
-router.put('/:id', productsController.update); 
-
-/*** EDIT ONE IMAGE-PRODUCT ***/
-router.get('/:id/edit/image', productsController.editImage);
-router.put('/:id/image', upload.any() ,productsController.updateImage);
-
+router.put('/:id', upload.any(), productsController.update); 
 
 /*** DELETE ONE PRODUCT ***/ 
 router.delete('/:id', productsController.destroy); 

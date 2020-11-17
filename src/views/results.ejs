@@ -12,16 +12,21 @@
 	<!-- /Banner -->
 
 	<!-- todos los productos -->
+
+	<% if(busqueda) { %>
+
+	<% for(let i=0; i < busqueda.length; i++) { %>
+
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Resultados de la búsqueda: ¿?</h2>
+				<h2 class="products-title">Resultados de la búsqueda: <% busqueda.lenght %> </h2>
 			</div>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/products/detail/¿?">
+						<a href="/products/<%= i.id %>">
 							<figure class="product-box_image">
-								<img src="/images/products/¿?" alt="imagen de producto">
+								<img src="/images/products/<%= i.image %>" alt="imagen de producto">
 							</figure>
 							<article class="product-box_data">
 								<h2>$FINAL PRICE</h2>
@@ -33,11 +38,20 @@
 					</section>
 				</div>
 
+				<% } %>
+
+				<% } else { %>
+
 			<div class="col-12">
 				<h2 class="products-title" style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
 			</div>
+
+				<% } %>
 		</div>
 	</div>
+
+	
+
 	<!-- /todos los productos -->
 
 	<!-- footer -->
