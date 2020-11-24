@@ -5,7 +5,7 @@ const path = require('path')
 
 const multer  = require('multer')
 
-var checkusers = require('../middlewares/checkUsers')
+//var checkusers = require('../middlewares/checkUsers')
 
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {

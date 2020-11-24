@@ -5,6 +5,8 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
+var session = require('express-session')
+var remember = require('./middlewares/rememberMiddleware')
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -21,7 +23,21 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
 
+// ***************Session & Cookie *************************
+app.use(session(
+  { secret:'secreto',
+  resave:'false',
+  saveUninitialized: true }
+));
 
+app.use(remember);
+
+app.use(function(req, res, next) {
+  if(req.session.user != undefined) {
+    res.locals.user = req.session.user;
+  }
+  return next()
+});
 
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
