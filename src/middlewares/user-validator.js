@@ -3,6 +3,7 @@ let userData = require("../data/user");
 
 module.exports = [
   check('email').isEmail().withMessage('El mail debe tener un formato valido'),
+  
 
   body("email").custom(function (value) { 
     
@@ -13,4 +14,6 @@ module.exports = [
     }
     return true;
   }),
+
+  check('password').isLength({min:4}).withMessage('Su clave debe tener almenos 4 caracteres')
 ];

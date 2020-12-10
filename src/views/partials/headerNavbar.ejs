@@ -34,12 +34,32 @@
 				<li><a href="/products/create">Vender</a></li>
 				<li><a href="#">Ayuda</a></li>
 			</ul>
+			
+			<% if(locals.user) { %>
+
+				<h2>Bienvenido <%= locals.user %></h2>
+
+				<ul class="right-navbar">
+
+					<li>
+						<form action="/auth/logout" method="POST">
+							<button>Salir</button> <i class="fas fa-sign-in-alt"></i>
+						</form>
+					</li>
+
+					<li><a href="#">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
+				</ul>
+
+			<% } else { %>			
 
 			<ul class="right-navbar">
 				<li><a href="/auth/register">Creá tu cuenta <i class="far fa-address-card"></i></a></li>
 				<li><a href="/auth/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
 				<li><a href="#">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
 			</ul>
+
+			<% } %>
+
 		</nav>
 	</div>
 </header>

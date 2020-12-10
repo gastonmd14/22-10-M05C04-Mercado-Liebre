@@ -18,13 +18,14 @@ function createUser(user) {
 
 function findById(id) {
   return users.find(function (user) {
-    return (user.id = id);
+    return (user.id == id);
   });
 }
 
 function findByEmail(email) {
+  
   return users.find(function (user) {
-    return (user.email = email);
+    return (user.email == email);
   });
 }
 

@@ -1,12 +1,1 @@
-[
-  {
-    "email": "gastonmd16@gmail.com",
-    "password": "$2a$10$jA6B6spvhNyZa49t6iuS6OxNzXuNDrclFtbXX0HSBOsXhFPriBVxu",
-    "id": 1
-  },
-  {
-    "email": "gastonmd15@gmail.com",
-    "password": "$2a$10$jA6B6spvhNyZa49t6iuS6OxNzXuNDrclFtbXX0HSBOsXhFPriBVxu",
-    "id": 3
-  }
-]
+[{"email":"test@test.com","password":"$2a$10$hgrnQLEJbIQ2YVc44Pbzi.Y8aLIaaJrwyQXLlPObZenSA8m73aofS","id":1},{"email":"test1@test.com","password":"$2a$10$v5JQJef7f2XU6Hq1HTLPM.4FIhJ1e8umDPpxHdpNs6KZFvpIpV3ye","id":2},{"email":"123456@test.com","password":"$2a$10$1yRrZh7CID/PMKgQjreYZeZLOR/2CngvLnFT.uycIU0k8GwL6F.Uq","id":3},{"email":"test6@test.com","password":"$2a$10$hXecXYZdnVqgusnr8Y/V9etOnfcQaYcxWacUSMJKTsOW.FDIZbyX6","id":4}]

@@ -5,7 +5,7 @@ const user = require('../data/user')
 
 //  let founded = user.findById(4)
 
-// let founded = user.findByEmail('gastonmd4@gmai.com')
+let founded = user.findByEmail('gastonmd15@gmail.com')
 
 
 // let newUser = {
@@ -16,6 +16,6 @@ const user = require('../data/user')
 
 // user.createUser(newUser);
 
-let founded = user.findById(2)
+// let founded = user.findById(2)
 
 console.log(founded);
